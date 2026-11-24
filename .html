@@ -1,0 +1,119 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Student Management System</title>
+
+    <style>
+        body {
+            font-family: Arial;
+            background-color: #f2f2f2;
+            margin: 0;
+        }
+
+        header {
+            background-color: navy;
+            color: white;
+            text-align: center;
+            padding: 20px;
+        }
+
+        .container {
+            width: 80%;
+            margin: 40px auto;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+        }
+
+        h2 {
+            text-align: center;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+
+        th, td {
+            border: 1px solid black;
+            padding: 12px;
+            text-align: center;
+        }
+
+        th {
+            background-color: lightblue;
+        }
+
+        .pass {
+            color: green;
+            font-weight: bold;
+        }
+
+        .fail {
+            color: red;
+            font-weight: bold;
+        }
+
+        footer {
+            background-color: navy;
+            color: white;
+            text-align: center;
+            padding: 15px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <header>
+        <h1>Student Management System</h1>
+        <p>Welcome to Student Dashboard</p>
+    </header>
+
+    <div class="container">
+        <h2>Student List</h2>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>Roll No</th>
+                    <th>Name</th>
+                    <th>Marks</th>
+                    <th>Status</th>
+                </tr>
+            </thead>
+
+            <tbody id="studentData"></tbody>
+        </table>
+    </div>
+
+    <footer>
+        <p>© 2026 Student Management System</p>
+    </footer>
+
+    <script>
+        const students = [
+            { roll: 101, name: "Sujith", marks: 85 },
+            { roll: 102, name: "Balaji", marks: 45 },
+            { roll: 103, name: "Krithika", marks: 92 },
+            { roll: 104, name: "Sai", marks: 30 },
+            { roll: 105, name: "Pramodh", marks: 67 }
+        ];
+
+        const data = students.map(student => `
+            <tr>
+                <td>${student.roll}</td>
+                <td>${student.name}</td>
+                <td>${student.marks}</td>
+                <td class="${student.marks >= 40 ? 'pass' : 'fail'}">
+                    ${student.marks >= 40 ? 'Pass' : 'Fail'}
+                </td>
+            </tr>
+        `).join("");
+
+        document.getElementById("studentData").innerHTML = data;
+    </script>
+
+</body>
+</html>
